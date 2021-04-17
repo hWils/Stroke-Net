@@ -53,10 +53,11 @@ for i,x in enumerate(listclasses):
 # only keep data with relevant time points, 2 till 8 seconds
 start_point = 2*fs
 end_point = 8*fs
-for trial in left_value:
-    trial = trial[start_point:end_point]
-for trial in right_value:
-    trial = trial[start_point:end_point]
+for ind in range(0, len(left_value)-1):
+    left_value[ind] = left_value[ind][start_point:end_point]
+for ind in range(0, len(right_value)-1):
+    right_value[ind] = right_value[ind][start_point:end_p
+                                            
         
 
 left_data = np.asarray(left_value)
