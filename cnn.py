@@ -245,7 +245,7 @@ model = Resnet()
 model2 = inception_resnet()
 
 sweep_config = {
-    'method': 'random', #grid, random
+    'method': 'bayesian', #grid, random
     'metric': {
       'name': 'accuracy',
       'goal': 'maximize'   
@@ -276,9 +276,9 @@ optimizer = optimizers.Adam(lr=0.001, decay=1e-5)
 model.compile(optimizer , loss=losses.binary_crossentropy , metrics=['acc'])
 
 batch_size = 256
-# callback = EarlyStopping('val_loss', patience=300, mode='min', restore_best_weights=True)
+
 def train(): 
-    earlyStopping = EarlyStopping(monitor='val_loss', patience=40, verbose=0, mode='min')
+    earlyStopping = EarlyStopping(monitor='val_loss', patience=20, verbose=0, mode='min')
     reduce_lr_loss = ReduceLROnPlateau(monitor='val_loss', factor=0.0001, patience=25, verbose=1, epsilon=1e-4, mode='min')
 
     history = model.fit(X_train, y_train, batch_size=batch_size, epochs=30, validation_data=(X_test, y_test),
@@ -286,6 +286,6 @@ def train():
     wandb.log({"history": history, "epoch": epoch})
     model.evaluate(X_train, y_train)
 
-    
+
 wandb.agent(sweep_id, train, count=15)
 
