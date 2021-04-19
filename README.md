@@ -1,5 +1,6 @@
 # Stroke-Net 
 A classification pipeline for motor imagery left or right hand movement, for the purposes of stroke rehabilitation. This was produced during the G.tec Spring School BCI Hackathon. Team members include Hadjer Benmeziane, Brier Rigby Dames, Ghinwa Masri, Vanessa Arteaga, Ernesto Alonso, Carolina Jiménez, Afrooz Seyedebrahimi, Holly Wilson.
+![GitHub Logo](/images/team.png)
 
 ## Introduction - Stroke rehabiliation
 Stroke rehabilitation is an important topic, as stroke is the leading cause of serious and long-term disability worldwide. Yet, survivors can recover some motor function after rehabilitation therapy, for example using Functional Electrical Stimulation (FES). Our goal in this project, was to obtain EEG biomarkers from chronic stroke patients, to detect their intended movement of either their left or right hand.This can be useful to enable targeted improvement of their hand movements via for example FES.
